@@ -12,7 +12,6 @@ export const UnauthRoute: React.FC<IUnauthProps> = ({ children }) => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    console.log(token);
     if(token) {
       navigate('/');
     }

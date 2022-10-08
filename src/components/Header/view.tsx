@@ -1,17 +1,20 @@
 import { Grid } from '@mui/material';
-import React from 'react';
+import React, { useRef } from 'react';
 import Logo from '../../assets/Logo.svg';
 import classNames from 'classnames';
+import { useOnClickOutside } from 'usehooks-ts'
 import './Header.css';
 
 interface IHeaderViewProps {
   isMenuOpen: boolean,
-	onPress: () => void, 
+	onPress: (e: boolean) => void,
+  onLogout: () => void 
 };
 
 const HeaderView : React.FC<IHeaderViewProps> = ({
   isMenuOpen,
-	onPress, 
+	onPress,
+  onLogout 
 }) => {
   const menuClasses = classNames(
     'nes-container', 
@@ -21,8 +24,13 @@ const HeaderView : React.FC<IHeaderViewProps> = ({
     { 'opened': isMenuOpen }
   );
 
-  console.log(menuClasses);
-  console.log(isMenuOpen);
+  const ref = useRef(null);
+
+  const handleClickOutside = () => {
+    onPress(false);
+  }
+
+  useOnClickOutside(ref, handleClickOutside);
 
   return (
     <div id="header">
@@ -44,17 +52,23 @@ const HeaderView : React.FC<IHeaderViewProps> = ({
         </Grid>
         <Grid item xs={3}>
           <Grid container justifyContent="center">
-          <div onClick={onPress} id="menu-container">
+          <div onClick={() => onPress(true)} id="menu-container">
             <img 
               className="nes-avatar is-large" 
               alt="Gravatar image example" 
               src="https://www.gravatar.com/avatar?s=15" 
               style={{imageRendering: 'pixelated'}}
             />
-            <div className={menuClasses}>
-              <p className="title">Меню</p>
-              <p></p>
-              <p></p>
+            <div 
+              className={menuClasses} 
+              style={{backgroundColor: 'white'}}
+              ref={ref}
+            >
+              <p>История</p>
+              <p>Статистика</p>
+              <p onClick={onLogout}>
+                <span className="nes-text is-error">Выход</span>
+              </p>
             </div>
           </div>
           </Grid>
