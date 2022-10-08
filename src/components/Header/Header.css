@@ -1,6 +1,8 @@
 h1#title {
   font-family: 'Montserrat';
   font-weight: 700;
+  font-size: 37px;
+  color: white;
 }
 
 div#header {
