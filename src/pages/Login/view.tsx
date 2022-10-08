@@ -53,7 +53,7 @@ const LoginView : React.FC<ILoginViewProps> = ({
 }
 
 const Backdround = styled.div`
-	height: 110vh;
+	height: 100vh;
   overflow-y: hidden;
 	width: 100%;
 	background-image: url('${background}');

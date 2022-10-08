@@ -7,4 +7,14 @@ h1#title {
 
 div#header {
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.37);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.nes-container.with-title.is-centered {
+  display: none;
+}
+
+.nes-container.with-title.is-centered.opened {
+  display: block;
 }

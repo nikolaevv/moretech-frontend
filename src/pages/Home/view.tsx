@@ -12,6 +12,7 @@ import Item3 from '../../assets/shop/3.svg';
 import Item4 from '../../assets/shop/4.svg';
 import Item5 from '../../assets/shop/5.svg';
 import Item6 from '../../assets/shop/6.svg';
+import BasePage from 'components/BasePage';
 
 interface IHomeViewProps {
 	mainPageState: MainPageState,
@@ -23,59 +24,56 @@ const HomeView: React.FC<IHomeViewProps> = ({
 	setPageState,
 }) => {
   return (
-		<Backdround>
-			<Header />
-			<Container>
-				<HomeMenu>
-					<Grid container direction="row" spacing={10} justifyContent='space-around'>
-						<img src={PetImage} alt="Pet" />
-						
-						{mainPageState === MainPageState.SHOP && (
-							<Shop>
-								<Grid container spacing={2}>
-									<Grid item xs={4}>
-										<img src={Item1} alt="Item1" />
-									</Grid>
-									<Grid item xs={4}>
-										<img src={Item2} alt="Item2" />
-									</Grid>
-									<Grid item xs={4}>
-										<img src={Item3} alt="Item3" />
-									</Grid>
-									<Grid item xs={4}>
-										<img src={Item4} alt="Item4" />
-									</Grid>
-									<Grid item xs={4}>
-										<img src={Item5} alt="Item5" />
-									</Grid>
-									<Grid item xs={4}>
-										<img src={Item6} alt="Item6" />
-									</Grid>
+		<BasePage>
+			<HomeMenu>
+				<Grid container direction="row" spacing={10} justifyContent='space-around'>
+					<img src={PetImage} alt="Pet" />
+					
+					{mainPageState === MainPageState.SHOP && (
+						<Shop>
+							<Grid container spacing={2}>
+								<Grid item xs={4}>
+									<img src={Item1} alt="Item1" />
 								</Grid>
-							</Shop>
-						)}
+								<Grid item xs={4}>
+									<img src={Item2} alt="Item2" />
+								</Grid>
+								<Grid item xs={4}>
+									<img src={Item3} alt="Item3" />
+								</Grid>
+								<Grid item xs={4}>
+									<img src={Item4} alt="Item4" />
+								</Grid>
+								<Grid item xs={4}>
+									<img src={Item5} alt="Item5" />
+								</Grid>
+								<Grid item xs={4}>
+									<img src={Item6} alt="Item6" />
+								</Grid>
+							</Grid>
+						</Shop>
+					)}
+				</Grid>
+				<ButtonsGrid container spacing={2}>
+					<Grid item xs={4}>
+						<MainButtonContainer>
+							<MainButton onClick={() => setPageState(MainPageState.SHOP)}>Магазин</MainButton>
+						</MainButtonContainer>
 					</Grid>
-					<ButtonsGrid container spacing={2}>
-						<Grid item xs={4}>
-							<MainButtonContainer>
-								<MainButton onClick={() => setPageState(MainPageState.SHOP)}>Магазин</MainButton>
-							</MainButtonContainer>
-						</Grid>
-						<Grid item xs={4}>
-							<MainButtonContainer>
-								<MainButton>Инвентарь</MainButton>
-							</MainButtonContainer>
-						</Grid>
-						<Grid item xs={4}>
-							<MainButtonContainer>
-								<MainButton>Задания</MainButton>
-							</MainButtonContainer>
-						</Grid>
-					</ButtonsGrid>
-				</HomeMenu>
-			</Container>
-		</Backdround>
-  	);
+					<Grid item xs={4}>
+						<MainButtonContainer>
+							<MainButton>Инвентарь</MainButton>
+						</MainButtonContainer>
+					</Grid>
+					<Grid item xs={4}>
+						<MainButtonContainer>
+							<MainButton>Задания</MainButton>
+						</MainButtonContainer>
+					</Grid>
+				</ButtonsGrid>
+			</HomeMenu>
+	</BasePage>
+  );
 }
 
 const MainButtonContainer = styled.div`
