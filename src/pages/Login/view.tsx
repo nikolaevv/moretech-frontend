@@ -1,5 +1,5 @@
 import React from 'react';
-import { UnauthRoute } from 'routes/UnauthRoute';
+import { TextField, Grid, Button } from '@mui/material';
 
 interface ILoginViewProps {
   login: string;
@@ -17,13 +17,24 @@ const LoginView : React.FC<ILoginViewProps> = ({
   onSubmit
 }) =>  {
   return (
-    <UnauthRoute>
-      <form>
-        <input name="login" value={login} onChange={setLogin} />
-        <input name="password" value={password} onChange={setPassword} />
-        <button onClick={onSubmit}>Login</button>
-      </form>
-    </UnauthRoute>
+    <Grid
+      container
+      spacing={2}
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+      style={{ minHeight: '100vh' }}
+    >
+      <Grid item xs={12}>
+        <TextField variant="outlined" name="login" value={login} onChange={setLogin} />
+      </Grid>
+      <Grid item xs={12}>
+        <TextField variant="outlined" name="password" value={password} onChange={setPassword} />
+      </Grid>
+      <Grid item xs={12}>
+        <Button variant="contained" onClick={onSubmit}>Login</Button>
+      </Grid>
+    </Grid>
   );
 }
 

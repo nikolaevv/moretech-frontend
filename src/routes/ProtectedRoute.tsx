@@ -1,3 +1,4 @@
+import { Header } from "components/Header";
 import { useAppSelector } from "hooks/redux";
 import React, { ReactElement } from "react";
 import { Navigate } from "react-router-dom";
@@ -12,5 +13,10 @@ export const ProtectedRoute: React.FC<IProtectedRouteProps> = ({ children }) => 
   if (!token) {
     return <Navigate to="/login" />;
   }
-  return children;
+  return (
+    <>
+      <Header />
+      {children}
+    </>
+  );
 };
