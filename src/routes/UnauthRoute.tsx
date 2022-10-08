@@ -8,14 +8,14 @@ interface IUnauthProps {
 }
 
 export const UnauthRoute: React.FC<IUnauthProps> = ({ children }) => {
-  const { token } = useAppSelector(state => state.authToken);
+  const { id, token } = useAppSelector(state => state.authToken);
   let navigate = useNavigate();
 
   useEffect(() => {
     if(token) {
       navigate('/');
     }
-  }, [token]);
+  }, [id, token]);
 
   if (token) {
     return <Navigate to="/" />;

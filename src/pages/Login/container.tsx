@@ -13,7 +13,10 @@ const LoginContainer : React.FC = () => {
 
   useEffect(() => {
     if(data) {
-      dispath(authLogin(data.token));
+      dispath(authLogin({
+        id: data.id,
+        token: data.token
+      }));
     }
   }, [data]);
 
