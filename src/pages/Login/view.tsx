@@ -1,5 +1,7 @@
 import React from 'react';
-import { TextField, Grid, Button } from '@mui/material';
+import { Grid } from '@mui/material';
+import background from "assets/wallpaper.jpg";
+import styled from '@emotion/styled';
 
 interface ILoginViewProps {
   login: string;
@@ -7,6 +9,10 @@ interface ILoginViewProps {
   setLogin: (event: React.ChangeEvent<HTMLInputElement>) => void;
   setPassword: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: () => void
+}
+
+const Padding: React.FC = () => {
+  return <div style={{height: '25px'}} ></div>
 }
 
 const LoginView : React.FC<ILoginViewProps> = ({
@@ -17,25 +23,42 @@ const LoginView : React.FC<ILoginViewProps> = ({
   onSubmit
 }) =>  {
   return (
-    <Grid
-      container
-      spacing={2}
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      style={{ minHeight: '100vh' }}
-    >
-      <Grid item xs={12}>
-        <TextField variant="outlined" name="login" value={login} onChange={setLogin} />
+    <Backdround>
+      <Grid
+        container
+        spacing={2}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        style={{ minHeight: '100vh' }}
+      >
+        <div className="nes-container with-title is-centered" style={{backgroundColor: 'white'}}>
+          <span className="nes-text is-primary">Здесь стартует твоё приключение</span>
+          <Padding/>
+          <div className="nes-field">
+            <label htmlFor="name_field">Логин</label>
+            <input type="text" id="name_field" className="nes-input" value={login} onChange={setLogin} />
+          </div>
+          <Padding/>
+          <div className="nes-field">
+            <label htmlFor="name_field">Пароль</label>
+            <input type="text" id="name_field" className="nes-input" value={password} onChange={setPassword} />
+          </div>
+          <Padding/>
+          <button type="button" className="nes-btn is-primary" onClick={onSubmit}>Старт!</button>
+        </div>
       </Grid>
-      <Grid item xs={12}>
-        <TextField variant="outlined" name="password" value={password} onChange={setPassword} />
-      </Grid>
-      <Grid item xs={12}>
-        <Button variant="contained" onClick={onSubmit}>Login</Button>
-      </Grid>
-    </Grid>
+    </Backdround>
   );
 }
+
+const Backdround = styled.div`
+	height: 110vh;
+  overflow-y: hidden;
+	width: 100%;
+	background-image: url('${background}');
+  background-size: auto auto;
+`;
+
 
 export default LoginView;
