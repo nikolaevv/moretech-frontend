@@ -1,10 +1,10 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
+import { createApi } from "@reduxjs/toolkit/dist/query/react";
 import { INftItem } from "models/INftItem";
-import { BASE_URL } from "services/constants";
+import { baseQuery } from "services/baseQuery";
 
 export const nftItemAPI = createApi({
   reducerPath: 'nftAPI',
-  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
+  baseQuery: baseQuery,
   tagTypes: ['NftItem'],
   endpoints: (build) => ({
     fetchAllNftItems: build.query<INftItem[], void>({

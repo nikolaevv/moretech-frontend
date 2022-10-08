@@ -9,8 +9,10 @@ import {
   taskAPI, 
   taskAssignAPI 
 } from 'services';
+import { authTokenSlice } from "store/reducers/AuthTokenSlice";
 
 const rootReducer = combineReducers({
+  authToken: authTokenSlice.reducer,
   [authAPI.reducerPath]: authAPI.reducer,
   [userAPI.reducerPath]: userAPI.reducer,
   [shopItemAPI.reducerPath]: shopItemAPI.reducer,

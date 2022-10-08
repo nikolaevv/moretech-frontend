@@ -1,10 +1,10 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-import { BASE_URL } from "services/constants";
+import { createApi } from "@reduxjs/toolkit/dist/query/react";
 import { ITaskAssign } from "models/ITaskAssign";
+import { baseQuery } from "services/baseQuery";
 
 export const taskAssignAPI = createApi({
   reducerPath: 'taskAssignAPI',
-  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
+  baseQuery: baseQuery,
   tagTypes: ['TaskAssign'],
   endpoints: (build) => ({
     fetchAllTaskAssigns: build.query<ITaskAssign[], void>({

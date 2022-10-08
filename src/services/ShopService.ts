@@ -1,10 +1,10 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
+import { createApi } from "@reduxjs/toolkit/dist/query/react";
 import { IShopItem } from "models/IShopItem";
-import { BASE_URL } from "services/constants";
+import { baseQuery } from "services/baseQuery";
 
 export const shopItemAPI = createApi({
   reducerPath: 'shopAPI',
-  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
+  baseQuery: baseQuery,
   tagTypes: ['ShopItem'],
   endpoints: (build) => ({
     fetchAllShopItems: build.query<IShopItem[], void>({

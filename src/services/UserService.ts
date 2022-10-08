@@ -1,12 +1,12 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-import { BASE_URL } from "services/constants";
+import { createApi } from "@reduxjs/toolkit/dist/query/react";
 import { IUser } from "models/IUser";
 import { IQuery } from "models/IQuery";
 import { ITransaction } from "models/ITransaction";
+import { baseQuery } from "./baseQuery";
 
 export const userAPI = createApi({
   reducerPath: 'userAPI',
-  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
+  baseQuery: baseQuery,
   tagTypes: ['User'],
   endpoints: (build) => ({
     fetchUsersByQuery: build.query<IUser[], IQuery>({
