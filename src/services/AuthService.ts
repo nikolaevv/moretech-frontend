@@ -9,7 +9,7 @@ export const authAPI = createApi({
   }),
   tagTypes: ['Auth'],
   endpoints: (build) => ({
-    createPost: build.mutation<IAuth, IAuth>({
+    auth: build.mutation<IAuth, IAuth>({
       query: (post) => ({
         url: `/auth`,
         method: 'POST',
