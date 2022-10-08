@@ -32,7 +32,7 @@ const LoginView : React.FC<ILoginViewProps> = ({
         justifyContent="center"
         style={{ minHeight: '100vh' }}
       >
-        <div className="nes-container with-title is-centered" style={{backgroundColor: 'white'}}>
+        <div className="nes-container with-title is-centered opened" style={{backgroundColor: 'white'}}>
           <span className="nes-text is-primary">Здесь стартует твоё приключение</span>
           <Padding/>
           <div className="nes-field">

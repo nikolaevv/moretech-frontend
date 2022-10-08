@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ProtectedRoute } from 'routes/ProtectedRoute';
 import styled from '@emotion/styled';
 import { Button, Container, Grid, Typography } from '@mui/material';
@@ -6,7 +6,8 @@ import PetImage from '../../assets/Pet.svg';
 import { Header } from 'components/Header';
 import { MainPageState } from './container';
 
-import Item1 from '../../assets/shop/1.svg';
+import Card1 from 'assets/cards/Драконье проклятье.svg';
+import EmptyCard from 'assets/cards/Card.svg';
 import Item2 from '../../assets/shop/2.svg';
 import Item3 from '../../assets/shop/3.svg';
 import Item4 from '../../assets/shop/4.svg';
@@ -23,13 +24,15 @@ const HomeView: React.FC<IHomeViewProps> = ({
 	mainPageState,
 	setPageState,
 }) => {
+	const [isOpen, setOpen] = useState(false);
+
   return (
 		<BasePage>
 			<HomeMenu>
-				<Grid container direction="row" spacing={10} justifyContent='space-around'>
-					<img src={PetImage} alt="Pet" />
-					
-					{mainPageState === MainPageState.SHOP && (
+					<img src={isOpen ? Card1 : EmptyCard} alt="Pet" />
+					<div style={{height: '30px'}}></div>
+					<button type="button" className={!isOpen ? "nes-btn is-error" : "nes-btn is-disabled"} onClick={() => setOpen(true)}>Испытать судьбу</button>
+					{/* mainPageState === MainPageState.SHOP && (
 						<Shop>
 							<Grid container spacing={2}>
 								<Grid item xs={4}>
@@ -52,22 +55,21 @@ const HomeView: React.FC<IHomeViewProps> = ({
 								</Grid>
 							</Grid>
 						</Shop>
-					)}
-				</Grid>
+					) */}
 				<ButtonsGrid container spacing={2}>
 					<Grid item xs={4}>
 						<MainButtonContainer>
-							<MainButton onClick={() => setPageState(MainPageState.SHOP)}>Магазин</MainButton>
+							<span className="nes-text is-primary">Магазин</span>
 						</MainButtonContainer>
 					</Grid>
 					<Grid item xs={4}>
 						<MainButtonContainer>
-							<MainButton>Инвентарь</MainButton>
+							<span className="nes-text is-primary">Инвентарь</span>
 						</MainButtonContainer>
 					</Grid>
 					<Grid item xs={4}>
 						<MainButtonContainer>
-							<MainButton>Задания</MainButton>
+							<span className="nes-text is-primary">Задания</span>
 						</MainButtonContainer>
 					</Grid>
 				</ButtonsGrid>

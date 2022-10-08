@@ -17,6 +17,7 @@ const HeaderView : React.FC<IHeaderViewProps> = ({
     'nes-container', 
     'with-title', 
     'is-centered',
+    'relative',
     { 'opened': isMenuOpen }
   );
 
@@ -43,7 +44,7 @@ const HeaderView : React.FC<IHeaderViewProps> = ({
         </Grid>
         <Grid item xs={3}>
           <Grid container justifyContent="center">
-          <div onClick={onPress}>
+          <div onClick={onPress} id="menu-container">
             <img 
               className="nes-avatar is-large" 
               alt="Gravatar image example" 

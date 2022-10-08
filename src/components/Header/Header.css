@@ -11,10 +11,17 @@ div#header {
   padding-bottom: 10px;
 }
 
-.nes-container.with-title.is-centered {
+div#menu-container {
+  position: relative;
+}
+
+.nes-container.with-title.is-centered.relative {
   display: none;
 }
 
-.nes-container.with-title.is-centered.opened {
+.nes-container.with-title.is-centered.relative.opened {
   display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
