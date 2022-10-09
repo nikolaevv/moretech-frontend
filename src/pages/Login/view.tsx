@@ -42,7 +42,7 @@ const LoginView : React.FC<ILoginViewProps> = ({
           <Padding/>
           <div className="nes-field">
             <label htmlFor="name_field">Пароль</label>
-            <input type="text" id="name_field" className="nes-input" value={password} onChange={setPassword} />
+            <input type="password" id="name_field" className="nes-input" value={password} onChange={setPassword} />
           </div>
           <Padding/>
           <button type="button" className="nes-btn is-primary" onClick={onSubmit}>Старт!</button>
